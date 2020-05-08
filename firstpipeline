@@ -1,0 +1,43 @@
+properties([parameters([string(defaultValue: 'sanjay', description: '', name: 'empname', trim: false)])])
+
+def remote = [:]
+
+remote.name = '10.110.3.222'
+
+remote.host = '10.110.3.222'
+
+remote.user = 'root'
+
+remote.password = 'Accenture.1'
+
+remote.allowAnyHosts = true
+
+ 
+
+ 
+
+pipeline {
+
+    agent any
+
+    
+
+    stages {              
+
+        stage('build') {
+
+            steps {
+
+                echo "Hello ${params.empname}!"
+
+                sh "echo Hello from the shell"
+
+                sh "hostname"
+
+            }
+
+        }
+
+        }
+
+}
